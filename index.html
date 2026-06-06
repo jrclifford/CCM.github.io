@@ -1167,30 +1167,30 @@ footer {
       <div class="form-row">
         <div class="form-group">
           <label>First Name</label>
-          <input id="f-first" type="text" placeholder="Jane" required />
+          <input type="text" placeholder="Jane" />
         </div>
         <div class="form-group">
           <label>Last Name</label>
-          <input id="f-last" type="text" placeholder="Smith" required />
+          <input type="text" placeholder="Smith" />
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Email Address</label>
-          <input id="f-email" type="email" placeholder="jane@example.com" required />
+          <input type="email" placeholder="jane@example.com" />
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input id="f-phone" type="tel" placeholder="(412) 000-0000" />
+          <input type="tel" placeholder="(412) 000-0000" />
         </div>
       </div>
       <div class="form-group">
         <label>Firm / Company / Organization</label>
-        <input id="f-company" type="text" placeholder="ABC Construction Inc." />
+        <input type="text" placeholder="ABC Construction Inc." />
       </div>
       <div class="form-group">
         <label>Your Role in the Dispute</label>
-        <select id="f-role">
+        <select>
           <option value="">Select your role...</option>
           <option>Attorney representing a Party</option>
           <option>Property Owner / Developer</option>
@@ -1204,7 +1204,7 @@ footer {
       </div>
       <div class="form-group">
         <label>Nature of the Dispute</label>
-        <select id="f-nature">
+        <select>
           <option value="">Select dispute type...</option>
           <option>Owner &amp; General Contractor</option>
           <option>General Contractor &amp; Subcontractor / Supplier</option>
@@ -1219,7 +1219,7 @@ footer {
       </div>
       <div class="form-group">
         <label>Approximate Claim Value</label>
-        <select id="f-value">
+        <select>
           <option value="">Select range...</option>
           <option>Under $500,000</option>
           <option>$500,000 – $1 million</option>
@@ -1229,7 +1229,7 @@ footer {
       </div>
       <div class="form-group">
         <label>Brief Description of the Dispute</label>
-        <textarea id="f-desc" placeholder="Briefly describe the project, parties involved, and the primary issues in dispute..."></textarea>
+        <textarea placeholder="Briefly describe the project, parties involved, and the primary issues in dispute..."></textarea>
       </div>
       <div class="form-note">
         All information submitted is held in strict confidence. Submission of this form does not create an attorney-client relationship.
@@ -1275,75 +1275,7 @@ footer {
 </div>
 
 <script>
-// ===========================================================================
-//  INTAKE FORM HANDLER
-//  Builds a pre-filled email to William and opens the visitor's email app.
-//  No third-party account required.
-//
-//  >>> WANT SUBMISSIONS TO ARRIVE AUTOMATICALLY (no email app needed)? <<<
-//  Sign up free at https://formspree.io, create a form, and you'll get an
-//  endpoint like https://formspree.io/f/abcdwxyz. Then set USE_FORMSPREE to
-//  true and paste your endpoint into FORMSPREE_ENDPOINT below. Done.
-// ===========================================================================
-var RECIPIENT_EMAIL    = "wclifford@dmclaw.com";
-var USE_FORMSPREE      = false;
-var FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
-
-function val(id) {
-  var el = document.getElementById(id);
-  return el ? el.value.trim() : "";
-}
-
 function handleSubmit() {
-  var first = val('f-first'), last = val('f-last'), email = val('f-email');
-
-  if (!first || !last || !email) {
-    alert('Please enter your first name, last name, and email address.');
-    return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    alert('Please enter a valid email address.');
-    return;
-  }
-
-  var fields = {
-    'First Name'  : first,
-    'Last Name'   : last,
-    'Email'       : email,
-    'Phone'       : val('f-phone'),
-    'Company'     : val('f-company'),
-    'Role'        : val('f-role'),
-    'Nature'      : val('f-nature'),
-    'Claim Value' : val('f-value'),
-    'Description' : val('f-desc')
-  };
-
-  if (USE_FORMSPREE) {
-    fetch(FORMSPREE_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json' },
-      body: new URLSearchParams(fields)
-    }).then(function (r) {
-      if (r.ok) { showSuccess(); }
-      else { alert('Something went wrong. Please email ' + RECIPIENT_EMAIL + ' directly.'); }
-    }).catch(function () {
-      alert('Something went wrong. Please email ' + RECIPIENT_EMAIL + ' directly.');
-    });
-    return;
-  }
-
-  var subject = 'Mediation Intake \u2014 ' + first + ' ' + last;
-  var lines = [];
-  for (var k in fields) { lines.push(k + ': ' + (fields[k] || '\u2014')); }
-  var body = lines.join('\n');
-  window.location.href = 'mailto:' + RECIPIENT_EMAIL +
-    '?subject=' + encodeURIComponent(subject) +
-    '&body='    + encodeURIComponent(body);
-
-  showSuccess();
-}
-
-function showSuccess() {
   document.getElementById('intake-form').style.display = 'none';
   document.getElementById('form-success').style.display = 'block';
 }
