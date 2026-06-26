@@ -367,7 +367,7 @@ footer { background: #1F2B35; color: #9DA9B2; padding: 3.5rem 0 2.2rem; }
         <div class="hero-rule hero-anim" style="animation-delay:.26s"></div>
         <p class="hero-sub hero-anim" style="animation-delay:.32s">Attorney and mediator William D. Clifford, Esq. brings over 40 years of construction law experience to every mediation — the keystone that holds two sides in one resolution, faster and at less cost than litigation.</p>
         <div class="btn-row hero-anim" style="animation-delay:.4s">
-          <a href="#schedule" class="btn btn-primary">Schedule a consultation <span class="arr">→</span></a>
+          <a href="#schedule" class="btn btn-primary">Schedule your mediation <span class="arr">→</span></a>
           <a href="#services" class="btn btn-ghost">View services</a>
         </div>
       </div>
@@ -579,7 +579,6 @@ footer { background: #1F2B35; color: #9DA9B2; padding: 3.5rem 0 2.2rem; }
         <h2 class="sec-title" style="margin-bottom:1.4rem;">Let's discuss your <em>dispute</em></h2>
         <p>Reach out for a confidential initial consultation. All inquiries are handled with discretion and answered within one business day.</p>
         <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><a href="mailto:wclifford@dmclaw.com">wclifford@dmclaw.com</a></div>
-        <div class="contact-line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-5.5-7-11a7 7 0 1114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>In person across Pennsylvania, and remotely via Zoom / Microsoft Teams</span></div>
       </div>
       <div class="form-card reveal" style="transition-delay:.1s">
         <div id="intake-form">
@@ -589,10 +588,7 @@ footer { background: #1F2B35; color: #9DA9B2; padding: 3.5rem 0 2.2rem; }
             <div class="field"><label>First name</label><input type="text" /></div>
             <div class="field"><label>Last name</label><input type="text" /></div>
           </div>
-          <div class="frow">
-            <div class="field"><label>Email address</label><input type="email" /></div>
-            <div class="field"><label>Phone number</label><input type="tel" /></div>
-          </div>
+          <div class="field"><label>Email address</label><input type="email" /></div>
           <div class="field"><label>Firm / company / organization</label><input type="text" /></div>
           <div class="field"><label>Your role in the dispute</label>
             <select><option>Select your role…</option><option>Attorney representing a party</option><option>Property owner / developer</option><option>General contractor</option><option>Subcontractor / supplier</option><option>Architect / engineer / design professional</option><option>Surety / insurance carrier</option><option>Public agency</option><option>Other</option></select>
@@ -622,25 +618,8 @@ footer { background: #1F2B35; color: #9DA9B2; padding: 3.5rem 0 2.2rem; }
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow center">Schedule</span>
-      <h2 class="sec-title">Book a consultation or <em>mediation</em></h2>
-      <p class="sec-intro">Choose the format that fits your matter, then select a time. Every booking is reviewed and confirmed by our office.</p>
-    </div>
-    <div class="sched-opts reveal">
-      <button type="button" class="sched-opt active" data-key="consult30">
-        <div class="dur">30 min</div>
-        <div class="nm">Initial consultation</div>
-        <div class="ds">A brief confidential call to discuss your dispute and whether mediation is the right path.</div>
-      </button>
-      <button type="button" class="sched-opt" data-key="consult60">
-        <div class="dur">60 min</div>
-        <div class="nm">Extended consultation</div>
-        <div class="ds">A deeper review for a complex, high-value, or multi-party matter.</div>
-      </button>
-      <button type="button" class="sched-opt" data-key="fullday">
-        <div class="dur">Full day</div>
-        <div class="nm">Mediation session</div>
-        <div class="ds">Reserve a full-day mediation. Requested here and confirmed once all parties are coordinated.</div>
-      </button>
+      <h2 class="sec-title">Book your <em>mediation</em></h2>
+      <p class="sec-intro">Select a time below. Every booking is reviewed and confirmed by our office once all parties are coordinated.</p>
     </div>
     <div class="cal-shell reveal">
       <iframe id="cal-frame" title="Schedule with William D. Clifford" loading="lazy"></iframe>
@@ -682,35 +661,19 @@ function handleSubmit(){
   document.getElementById('form-success').scrollIntoView({behavior:'smooth',block:'center'});
 }
 /* ============================================================
-   SCHEDULING CONFIG  —  EDIT THESE THREE SLUGS
+   SCHEDULING CONFIG
    ------------------------------------------------------------
-   In Bill's Cal.com account, create three event types:
-     • a 30-minute consultation
-     • a 60-minute consultation
-     • a full-day mediation
-   Then copy each event's slug (the part after the username in
-   its URL, e.g. cal.com/j-c-8upuet/30min  ->  slug is "30min")
-   into the matching line below. Nothing else needs to change.
+   To update the Calendly event, change the slug below.
+   Slug = the part after your username in the Calendly URL.
+   Example: calendly.com/jrc1588/8hour  ->  slug is "8hour"
    ============================================================ */
-const CAL_USER = 'j-c-8upuet';
-const SCHED = {
-  consult30: 'consultation-30min',
-  consult60: 'consultation-60min',
-  fullday:   'full-day-mediation'
-};
+const CAL_USER = 'jrc1588';
+const CAL_SLUG = '8hour';
 /* ========================================================== */
 
-const CAL_PARAMS = 'embed=true&theme=light&hideEventTypeDetails=false&layout=month_view';
-const calFrame = document.getElementById('cal-frame');
-function calURL(slug){ return 'https://cal.com/' + CAL_USER + '/' + slug + '?' + CAL_PARAMS; }
-calFrame.src = calURL(SCHED.consult30);
-document.querySelectorAll('.sched-opt').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.sched-opt').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    calFrame.src = calURL(SCHED[btn.dataset.key]);
-  });
-});
+document.getElementById('cal-frame').src =
+  'https://calendly.com/' + CAL_USER + '/' + CAL_SLUG +
+  '?embed_type=Inline&hide_gdpr_banner=1&primary_color=a8884f';
 
 // mobile nav
 const tog = document.getElementById('navtoggle'), links = document.getElementById('navlinks');
