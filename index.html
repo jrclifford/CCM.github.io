@@ -177,7 +177,46 @@ h1.hero-title em { font-style: italic; color: var(--brass); }
 
 /* SCHEDULE */
 .cal-embed-section { background: var(--off-white); padding: 6rem 4.5rem; border-top: 1px solid var(--border); }
-.cal-embed-wrap { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; min-height: 600px; background: var(--warm-white); }
+.schedule-card {
+  margin-top: 1rem;
+  border: 1px solid var(--border-brass);
+  border-radius: 4px;
+  background: var(--cream);
+  overflow: hidden;
+}
+.schedule-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+.schedule-icon {
+  width: 56px; height: 56px;
+  background: var(--slate);
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.schedule-icon svg { width: 26px; height: 26px; stroke: var(--brass-light); }
+.schedule-text { flex: 1; }
+.schedule-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  color: var(--slate);
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+.schedule-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.7; }
+.schedule-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .schedule-card-inner { flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .schedule-btn { width: 100%; justify-content: center; }
+}
 
 /* TESTIMONIALS */
 #testimonials { background: var(--slate); padding: 6rem 4.5rem; }
@@ -325,7 +364,7 @@ footer {
     <h1 class="hero-title">Disputes resolved<br>with <em>precision</em><br>and persistence.</h1>
     <p class="hero-sub">Attorney and mediator William D. Clifford, Esq. brings over 40 years of construction law experience to every mediation — delivering faster, less costly resolution than litigation.</p>
     <div class="btn-row">
-      <a href="#contact" class="btn-primary">Schedule a Consultation</a>
+      <a href="#contact" class="btn-primary">Book a Mediation Day</a>
       <a href="#services" class="btn-outline">View Services</a>
     </div>
   </div>
@@ -428,18 +467,22 @@ footer {
 
 <section class="cal-embed-section" id="schedule">
   <div class="section-label">Schedule</div>
-  <h2 class="section-title" style="margin-bottom:0.5rem;">Book a consultation</h2>
-  <p class="section-body" style="margin-bottom:2rem;">Select a date and time below to schedule a confidential initial consultation.</p>
-  <div class="cal-embed-wrap">
-    <iframe
-      src="https://calendar.app.google/JApnX9p2XZ9kAJuW6"
-      width="100%"
-      height="660"
-      frameborder="0"
-      style="border:none; display:block;"
-      title="Schedule a consultation with William D. Clifford, Esq."
-      allow="camera; microphone; fullscreen"
-    ></iframe>
+  <h2 class="section-title" style="margin-bottom:0.5rem;">Book a mediation day</h2>
+  <p class="section-body" style="margin-bottom:1.5rem;">Mediations are scheduled as full-day sessions. Use the link below to check availability and reserve your date. All bookings are confirmed following submission of the intake form and execution of the Agreement to Mediate.</p>
+  <div class="schedule-card">
+    <div class="schedule-card-inner">
+      <div class="schedule-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+      </div>
+      <div class="schedule-text">
+        <div class="schedule-title">Full-Day Mediation Session</div>
+        <div class="schedule-desc">Sessions are conducted in-person or remotely via Zoom / Microsoft Teams. Pre-mediation statements are due one week prior to the scheduled date.</div>
+      </div>
+      <a href="https://calendar.app.google/JApnX9p2XZ9kAJuW6" target="_blank" rel="noopener noreferrer" class="btn-primary schedule-btn">
+        Check Availability &amp; Book
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px;margin-left:0.5rem;vertical-align:middle;"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6m0 0v6m0-6L10 14"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
