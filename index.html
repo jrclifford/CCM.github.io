@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8"/>
 <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="d7dc79a3-5902-46af-8725-6e3f37a258f0" data-blockingmode="auto" type="text/javascript"></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PW82TR8X');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>William D. Clifford, Esq. — Construction Mediation</title>
 <meta name="description" content="William D. Clifford, Esq. provides expert construction dispute mediation. Over 150 cases mediated."/>
@@ -276,8 +283,10 @@ footer {
 
 
 /* CAROUSEL */
-.carousel-wrap { margin-top: 3rem; position: relative; max-width: 780px; margin-left: auto; margin-right: auto; }
-.carousel-track { position: relative; }
+.carousel-outer { margin-top: 3rem; max-width: 900px; margin-left: auto; margin-right: auto; }
+.carousel-dots-row { display: flex; justify-content: center; margin-top: 1.5rem; }
+.carousel-wrap { display: flex; align-items: center; gap: 1.5rem; }
+.carousel-track { position: relative; flex: 1; }
 .testi-card {
   display: none;
   animation: fadeIn 0.4s ease;
@@ -304,10 +313,85 @@ footer {
   border: none;
 }
 .carousel-dot.active { background: var(--brass); width: 22px; border-radius: 4px; }
-.carousel-counter {
-  font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.35);
-  min-width: 3rem; text-align: center;
+
+
+
+/* LEGAL PAGES */
+.legal-page {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  background: var(--cream);
+  overflow-y: auto;
 }
+.legal-page-inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 3rem 2rem 5rem;
+}
+.legal-close {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--slate);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 2px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  transition: background 0.2s;
+}
+.legal-close:hover { background: var(--slate-mid); }
+.legal-content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  color: var(--slate);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.legal-date {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  font-style: italic;
+}
+.legal-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--slate);
+  margin: 2rem 0 0.5rem;
+  font-weight: 500;
+}
+.legal-content h3 {
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-size: 0.9rem;
+  color: var(--slate);
+  margin: 1.25rem 0 0.4rem;
+  font-weight: 500;
+}
+.legal-content p {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  margin-bottom: 0.75rem;
+}
+.legal-content ul {
+  margin: 0.5rem 0 0.75rem 1.5rem;
+}
+.legal-content ul li {
+  font-size: 0.93rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-bottom: 0.3rem;
+}
+.legal-content strong { color: var(--text); }
 
 /* LIGHTBOX */
 .lightbox { display: none; position: fixed; inset: 0; background: rgba(20,28,36,0.92); z-index: 9999; align-items: center; justify-content: center; cursor: pointer; }
@@ -342,6 +426,10 @@ footer {
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW82TR8X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <nav>
   <a href="#home" class="nav-logo">
@@ -365,7 +453,7 @@ footer {
     <h1 class="hero-title">Disputes resolved<br>with <em>precision</em><br>and persistence.</h1>
     <p class="hero-sub">Attorney and mediator William D. Clifford, Esq. brings over 40 years of construction law experience to every mediation — delivering faster, less costly resolution than litigation.</p>
     <div class="btn-row">
-      <a href="#contact" class="btn-primary">Book a Mediation Day</a>
+      <a href="#contact" class="btn-primary">Book Mediation</a>
       <a href="#services" class="btn-outline">View Services</a>
     </div>
   </div>
@@ -491,8 +579,12 @@ footer {
   <div class="section-label">Testimonials</div>
   <h2 class="section-title">What counsel and clients say</h2>
 
-  <div class="carousel-wrap">
-    <div class="carousel-track" id="carouselTrack">
+  <div class="carousel-outer">
+    <div class="carousel-wrap">
+      <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <div class="carousel-track" id="carouselTrack">
 
       <div class="testi-card">
         <span class="testi-open">&ldquo;</span>
@@ -542,18 +634,12 @@ footer {
         </div>
       </div>
 
-    </div>
-
-    <div class="carousel-controls">
-      <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)" aria-label="Previous">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="carousel-dots" id="carouselDots"></div>
-      <span class="carousel-counter" id="carouselCounter"></span>
+      </div>
       <button class="carousel-btn" id="nextBtn" onclick="moveCarousel(1)" aria-label="Next">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
+    <div class="carousel-dots-row"><div class="carousel-dots" id="carouselDots"></div></div>
   </div>
 </section>
 
@@ -603,6 +689,11 @@ footer {
     <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <ul class="footer-links" style="margin-top:0.5rem;">
+    <li><a href="#" onclick="openLegal('privacy-page'); return false;">Privacy Policy</a></li>
+    <li><a href="#" onclick="openLegal('terms-page'); return false;">Terms of Service</a></li>
+    <li><a href="#" onclick="openLegal('disclaimer-page'); return false;">Legal Disclaimer</a></li>
+  </ul>
 </footer>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -623,13 +714,13 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow = '';
 }
-document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+// escape handled below
 
 // Carousel - one at a time
 (function() {
   const track = document.getElementById('carouselTrack');
   const dotsContainer = document.getElementById('carouselDots');
-  const counter = document.getElementById('carouselCounter');
+  
   if (!track) return;
 
   const cards = Array.from(track.querySelectorAll('.testi-card'));
@@ -654,7 +745,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
     dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
       d.classList.toggle('active', i === current);
     });
-    if (counter) counter.textContent = (current + 1) + ' / ' + total;
+    
     document.getElementById('prevBtn').disabled = false;
     document.getElementById('nextBtn').disabled = false;
   }
@@ -664,7 +755,7 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
   // Init
   cards.forEach((c, i) => { if (i === 0) c.classList.add('active'); });
   buildDots();
-  if (counter) counter.textContent = '1 / ' + total;
+  
 
   // Swipe support
   let startX = 0;
@@ -682,7 +773,196 @@ document.addEventListener('keydown', function(e) { if (e.key === 'Escape') close
 })();
 
 </script>
-</body>
-</html>
+
+<!-- ── PRIVACY POLICY PAGE ── -->
+<div id="privacy-page" class="legal-page" style="display:none;">
+  <div class="legal-page-inner">
+    <button class="legal-close" onclick="closeLegal()">&times; Close</button>
+    <div class="legal-content">
+      <h1>Privacy Policy</h1>
+      <p class="legal-date">Clifford Construction Mediation &nbsp;|&nbsp; Effective Date: July 22, 2026</p>
+
+      <h2>1. Introduction</h2>
+      <p>Clifford Construction Mediation ("we," "us," or "our") operates the website located at cliffordconstructionmediation.com (the "Site"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit the Site or submit an inquiry through it. Please read this policy carefully. If you do not agree with its terms, please discontinue use of the Site.</p>
+
+      <h2>2. Information We Collect</h2>
+      <h3>2.1 Information You Provide Voluntarily</h3>
+      <p>We may collect personal information that you voluntarily provide when you:</p>
+      <ul>
+        <li>Schedule a mediation session through our booking system</li>
+        <li>Send us an email or other direct communication</li>
+      </ul>
+      <p>This information may include your name, email address, phone number, company or firm name, and a description of your dispute.</p>
+
+      <h3>2.2 Automatically Collected Information</h3>
+      <p>When you visit the Site, certain information may be collected automatically through analytics and cookie management tools, including:</p>
+      <ul>
+        <li>IP address and general geographic location</li>
+        <li>Browser type and version</li>
+        <li>Pages visited and time spent on the Site</li>
+        <li>Referring website or search engine</li>
+      </ul>
+      <p>We use cookies and similar tracking technologies to collect this information. You may control cookie preferences through the consent banner displayed on your first visit to the Site.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>Respond to inquiries and schedule mediation sessions</li>
+        <li>Communicate with you regarding your matter</li>
+        <li>Improve the functionality and content of the Site</li>
+        <li>Comply with applicable legal obligations</li>
+      </ul>
+      <p>We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+
+      <h2>4. Cookies and Tracking</h2>
+      <p>Our Site uses cookies to enhance your experience and to comply with legal obligations. We use Cookiebot to manage consent. You may withdraw or modify your cookie consent at any time by clicking the Privacy Settings link in the footer of the Site.</p>
+
+      <h2>5. Third-Party Services</h2>
+      <ul>
+        <li>Google Calendar — for appointment scheduling and availability</li>
+        <li>Google Analytics (via Google Tag Manager) — for anonymous website traffic analysis</li>
+        <li>Cookiebot — for cookie consent management and privacy compliance</li>
+      </ul>
+
+      <h2>6. California Privacy Rights (CCPA/CPRA)</h2>
+      <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA) and California Privacy Rights Act (CPRA), including:</p>
+      <ul>
+        <li>The right to know what personal information we collect, use, and share</li>
+        <li>The right to request deletion of your personal information</li>
+        <li>The right to opt out of the sale or sharing of personal information (we do not sell personal information)</li>
+        <li>The right to non-discrimination for exercising your privacy rights</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us at bill@cliffordconstructionmediation.com. We will respond to verified requests within 45 days as required by California law.</p>
+
+      <h2>7. Data Retention</h2>
+      <p>We retain personal information only as long as necessary to fulfill the purposes described in this policy or as required by applicable law. Scheduling and communication records are retained for a minimum of three years, consistent with professional responsibility obligations applicable to attorneys practicing in Pennsylvania.</p>
+
+      <h2>8. Your Rights</h2>
+      <ul>
+        <li>Access the personal information we hold about you</li>
+        <li>Request correction of inaccurate information</li>
+        <li>Request deletion of your information</li>
+        <li>Withdraw consent for data processing where consent is the legal basis</li>
+        <li>Lodge a complaint with a relevant data protection authority</li>
+      </ul>
+
+      <h2>9. Security</h2>
+      <p>We implement reasonable administrative, technical, and physical safeguards to protect your information. However, no method of transmission over the internet is completely secure, and we cannot guarantee absolute security of your data.</p>
+
+      <h2>10. Children's Privacy</h2>
+      <p>The Site is not directed to individuals under the age of 18. We do not knowingly collect personal information from minors.</p>
+
+      <h2>11. Changes to This Policy</h2>
+      <p>We reserve the right to update this Privacy Policy at any time. Your continued use of the Site following any changes constitutes acceptance of the updated policy.</p>
+
+      <h2>12. Contact Us</h2>
+      <p>William D. Clifford, Esq.<br>Clifford Construction Mediation<br>bill@cliffordconstructionmediation.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── TERMS OF SERVICE PAGE ── -->
+<div id="terms-page" class="legal-page" style="display:none;">
+  <div class="legal-page-inner">
+    <button class="legal-close" onclick="closeLegal()">&times; Close</button>
+    <div class="legal-content">
+      <h1>Website Terms of Service</h1>
+      <p class="legal-date">Clifford Construction Mediation &nbsp;|&nbsp; Effective Date: July 22, 2026</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using the website located at cliffordconstructionmediation.com (the "Site"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree, you may not use the Site. We reserve the right to modify these Terms at any time. Continued use of the Site after changes are posted constitutes your acceptance of the revised Terms.</p>
+
+      <h2>2. No Attorney-Client Relationship</h2>
+      <p><strong>IMPORTANT: Use of this Site and submission of any inquiry does not create an attorney-client relationship between you and William D. Clifford, Esq. or Clifford Construction Mediation. No information submitted through this Site should be considered confidential or privileged until a formal engagement agreement has been executed. Do not submit sensitive or confidential information through the Site until a formal mediation agreement is in place.</strong></p>
+
+      <h2>3. Not Legal Advice</h2>
+      <p>The content on this Site is provided for general informational purposes only. Nothing on this Site constitutes legal advice, legal opinion, or a guarantee of any particular outcome. You should consult qualified legal counsel regarding your specific situation before taking any action.</p>
+
+      <h2>4. Mediation Services</h2>
+      <p>William D. Clifford, Esq. provides neutral mediation services. As a mediator, he does not represent either party in a dispute and has no authority to impose a settlement. Participation in mediation is voluntary, and no outcome is guaranteed. All mediation sessions are governed by a separate Agreement to Mediate, which will be provided to all parties prior to any scheduled session.</p>
+
+      <h2>5. Conflict of Interest Disclosure</h2>
+      <p>Prior to any mediation session, William D. Clifford, Esq. will disclose to all parties any known circumstances that could reasonably raise a question as to his impartiality or create a conflict of interest. Consistent with the ethical standards of the Pennsylvania Bar Association and the Pennsylvania Council of Mediators, Mr. Clifford will withdraw from any matter in which a conflict of interest cannot be waived by all parties.</p>
+
+      <h2>6. Testimonials</h2>
+      <p>Testimonials appearing on this Site reflect the genuine experiences of the individuals quoted and are reproduced with permission. They are not intended to create an expectation of a similar result in your matter.</p>
+
+      <h2>7. Intellectual Property</h2>
+      <p>All content on this Site, including text, graphics, logos, and design, is the property of Clifford Construction Mediation and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any content on this Site without prior written consent.</p>
+
+      <h2>8. Booking and Scheduling</h2>
+      <p>Scheduling a mediation session through the Site's booking system does not constitute a confirmed engagement. All bookings are subject to availability, mutual agreement on terms, and execution of the Agreement to Mediate.</p>
+
+      <h2>9. Disclaimer of Warranties</h2>
+      <p><strong>THE SITE AND ALL CONTENT THEREIN ARE PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS WITHOUT ANY WARRANTY OR CONDITION, EXPRESS OR IMPLIED. TO THE FULL EXTENT PERMITTED BY APPLICABLE LAW, CLIFFORD CONSTRUCTION MEDIATION SPECIFICALLY DISCLAIMS ALL WARRANTIES INCLUDING, WITHOUT LIMITATION, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</strong></p>
+
+      <h2>10. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, Clifford Construction Mediation and William D. Clifford, Esq. shall not be liable for any indirect, incidental, special, or consequential damages arising out of or related to your use of the Site.</p>
+
+      <h2>11. Third-Party Links</h2>
+      <p>The Site may contain links to third-party websites. We do not control, endorse, or assume responsibility for the content or practices of any third-party sites.</p>
+
+      <h2>12. Governing Law and Jurisdiction</h2>
+      <p>These Terms are governed by the laws of the Commonwealth of Pennsylvania. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts located in Allegheny County, Pennsylvania.</p>
+
+      <h2>13. Contact</h2>
+      <p>William D. Clifford, Esq.<br>Clifford Construction Mediation<br>bill@cliffordconstructionmediation.com</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── LEGAL DISCLAIMER PAGE ── -->
+<div id="disclaimer-page" class="legal-page" style="display:none;">
+  <div class="legal-page-inner">
+    <button class="legal-close" onclick="closeLegal()">&times; Close</button>
+    <div class="legal-content">
+      <h1>Legal Disclaimer</h1>
+      <p class="legal-date">Clifford Construction Mediation &nbsp;|&nbsp; Effective Date: July 22, 2026</p>
+
+      <h2>1. No Legal Advice</h2>
+      <p>The information provided on this website is for general informational purposes only and does not constitute legal advice. Transmission of information through this Site is not intended to create, and receipt does not constitute, an attorney-client relationship.</p>
+
+      <h2>2. No Guarantee of Results</h2>
+      <p>Mediation is a voluntary process, and its outcome depends on the willingness and cooperation of all parties. Nothing on this Site should be construed as a guarantee or warranty of any particular result. Past successes in mediation do not guarantee similar outcomes in future matters.</p>
+
+      <h2>3. Professional Licensure and Geographic Scope</h2>
+      <p>William D. Clifford, Esq. is licensed to practice law in the Commonwealth of Pennsylvania and is admitted to the United States Court of Appeals for the Third Circuit and the United States District Court for the Western District of Pennsylvania. While Mr. Clifford accepts mediation engagements from parties nationwide, this website is not intended to solicit clients in jurisdictions where such solicitation would violate applicable rules of professional conduct.</p>
+
+      <h2>4. Mediation Confidentiality</h2>
+      <p>Mediation proceedings conducted through Clifford Construction Mediation are confidential pursuant to the Pennsylvania Labor Mediation Act and the terms of the Agreement to Mediate. However, information submitted through this website prior to execution of a formal mediation agreement is not protected by mediation confidentiality privilege.</p>
+
+      <h2>5. Pennsylvania Rules of Professional Conduct</h2>
+      <p>This website and all communications through it are intended to comply with the Pennsylvania Rules of Professional Conduct, including:</p>
+      <ul>
+        <li>Rule 7.1 — Communications Concerning a Lawyer's Services</li>
+        <li>Rule 7.2 — Advertising</li>
+        <li>Rule 7.3 — Solicitation of Clients</li>
+      </ul>
+
+      <h2>6. California Compliance</h2>
+      <p>To the extent this website is accessed by residents of California, Clifford Construction Mediation acknowledges the additional privacy protections afforded under the CCPA and CPRA. Please refer to the California Privacy Rights section of our Privacy Policy for details.</p>
+
+      <h2>7. Accuracy of Information</h2>
+      <p>While we make reasonable efforts to keep the information on this Site current and accurate, we make no representations or warranties of any kind about the completeness, accuracy, reliability, or suitability of the information on the Site for any purpose.</p>
+
+      <h2>8. Changes to This Disclaimer</h2>
+      <p>We reserve the right to update this Disclaimer at any time. Your continued use of the Site constitutes acceptance of the current Disclaimer.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openLegal(id) {
+  document.getElementById(id).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+  window.scrollTo(0,0);
+}
+function closeLegal() {
+  document.querySelectorAll('.legal-page').forEach(p => p.style.display = 'none');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeLegal(); closeLightbox(); }
+});
+</script>
 </body>
 </html>
