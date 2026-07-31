@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Accessibility Statement — Clifford Construction Mediation</title>
 <meta name="robots" content="index, follow"/>
-<link rel="canonical" href="https://cliffordconstructionmediation.com/accessibility"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="canonical" href="https://cliffordconstructionmediation.com/accessibility.html"/>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 94'%3E%3Cpolygon points='29,7.5 71,7.5 92,31 64,89.3 36,89.3 8,31' fill='%2325333f'/%3E%3Ctext x='50' y='42' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-weight='500' font-size='46' fill='%23eef1f3'%3EC%3C/text%3E%3C/svg%3E"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <!-- Termly Consent Management -->
 <script type="text/javascript" src="https://app.termly.io/resource-blocker/446afb4a-3e36-4cc0-a332-05a082cbfee5?autoBlock=on" data-name="termly-embed-banner"></script>
 <!-- Google Consent Mode v2 defaults -->
@@ -39,14 +40,16 @@ html{scroll-behavior:smooth;font-size:16px}
 body{font-family:'Hanken Grotesk',sans-serif;background:var(--cream);color:var(--text);line-height:1.7}
 h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.2}
 a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:2px}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:200;background:rgba(253,251,247,0.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0.9rem 3rem}
-.nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none}
-.nav-logo-mark{width:32px;height:38px;flex-shrink:0}
-.nav-logo-text{display:flex;flex-direction:column}
-.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:var(--slate);line-height:1.2}
-.nav-logo-sub{font-family:'Hanken Grotesk',sans-serif;font-size:0.6rem;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--slate-light)}
+.nav-logo{display:flex;align-items:center;gap:0.8rem;text-decoration:none}
+.ks{--ks-w:34px;width:var(--ks-w);height:calc(var(--ks-w)*.94);clip-path:polygon(29% 8%, 71% 8%, 92% 33%, 64% 95%, 36% 95%, 8% 33%);background:var(--slate);display:grid;place-items:center;color:#eef1f3;flex-shrink:0}
+.ks span{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1;font-size:calc(var(--ks-w)*.46);transform:translateY(-6%)}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1}
+.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--slate);letter-spacing:.005em}
+.nav-logo-sub{font-family:'Hanken Grotesk',sans-serif;font-size:0.52rem;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:var(--slate-light);margin-top:.28rem}
 .nav-back{font-size:0.78rem;color:var(--slate-light);letter-spacing:0.06em;text-transform:uppercase;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s}
 .nav-back:hover{color:var(--slate)}
 .nav-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.5}
@@ -63,16 +66,16 @@ p{font-size:0.93rem;color:var(--text-muted);line-height:1.85;margin-bottom:0.75r
 ul{margin:0.5rem 0 0.75rem 1.5rem}
 ul li{font-size:0.93rem;color:var(--text-muted);line-height:1.75;margin-bottom:0.3rem}
 strong{color:var(--text)}
-.policy-link{color:var(--brass);text-decoration:none}
-.policy-link:hover{text-decoration:underline}
+.policy-link{color:#8C7140;text-decoration:underline;text-underline-offset:2px}
+.policy-link:hover{color:var(--slate)}
 
 /* FOOTER */
 .policy-footer{background:var(--slate);padding:2rem 3rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .policy-footer-brand{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:600;color:rgba(255,255,255,0.85)}
 .policy-footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.policy-footer-links a{font-size:0.72rem;color:rgba(255,255,255,0.45);transition:color 0.2s}
-.policy-footer-links a:hover{color:rgba(255,255,255,0.85)}
-.policy-footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:0.4rem}
+.policy-footer-links a{font-size:0.72rem;color:rgba(255,255,255,0.62);transition:color 0.2s}
+.policy-footer-links a:hover{color:#C9AB5A}
+.policy-footer-copy{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.4rem}
 
 @media(max-width:600px){
   nav{padding:0.9rem 1.5rem}
@@ -87,18 +90,15 @@ strong{color:var(--text)}
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PW82TR8X" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav>
-  <a href="/" class="nav-logo">
-    <svg class="nav-logo-mark" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Clifford Construction Mediation keystone logo">
-      <polygon points="50,2 98,30 98,90 50,118 2,90 2,30" fill="#263340"/>
-      <text x="50" y="75" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="52" font-weight="500" fill="rgba(201,171,90,0.9)">C</text>
-    </svg>
-    <div class="nav-logo-text">
+  <a href="/" class="nav-logo" aria-label="Clifford Construction Mediation, home">
+    <span class="ks" aria-hidden="true"><span>C</span></span>
+    <span class="nav-logo-text">
       <span class="nav-logo-name">Clifford</span>
       <span class="nav-logo-sub">Construction Mediation</span>
-    </div>
+    </span>
   </a>
   <a href="/" class="nav-back">
-    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
     Back to site
   </a>
 </nav>
@@ -106,7 +106,7 @@ strong{color:var(--text)}
 <div class="policy-wrap">
   <div class="policy-label">Legal</div>
   <h1>Accessibility Statement</h1>
-<p class="policy-date">Last Updated: July 25, 2026</p>
+<p class="policy-date">Last Updated: July 31, 2026</p>
 
 <h2>Our Commitment</h2>
 <p>Clifford Construction Mediation is committed to ensuring digital accessibility for people with disabilities. We aim to conform with the Web Content Accessibility Guidelines (WCAG) 2.2 Level AA. This statement applies to cliffordconstructionmediation.com.</p>
@@ -117,16 +117,21 @@ strong{color:var(--text)}
 <h2>Accessibility Features</h2>
 <ul>
   <li>Zoom in up to 200% without loss of information or functionality</li>
-  <li>Full keyboard navigation throughout the site</li>
-  <li>Screen reader compatibility (NVDA for Windows, VoiceOver for macOS/iOS)</li>
-  <li>Skip navigation link for screen reader users</li>
-  <li>Sufficient color contrast ratios throughout</li>
-  <li>ARIA labels on all interactive elements</li>
-  <li>Mobile accessibility including AssistiveTouch (iOS) support</li>
+  <li>Full keyboard navigation throughout the site, with visible focus indicators</li>
+  <li>Designed for compatibility with screen readers, including NVDA for Windows and VoiceOver for macOS and iOS</li>
+  <li>Skip navigation link for screen reader and keyboard users</li>
+  <li>Descriptive text alternatives for images</li>
+  <li>ARIA labels and expanded-state announcements on interactive elements</li>
+  <li>Responsive navigation menu available on mobile devices</li>
+  <li>Reduced-motion support for users who have enabled that preference</li>
 </ul>
 
 <h2>Known Limitations</h2>
-<p><strong>Mobile navigation:</strong> Navigation menu links are hidden on small mobile screens. Users on mobile devices can scroll to access all content and use the footer links as an alternative. We plan to address this in a future update.</p>
+<p>We are aware of the following areas where the site does not yet fully meet our target:</p>
+<ul>
+  <li><strong>Colour contrast:</strong> some smaller brass-coloured text and decorative elements fall below the 4.5:1 contrast ratio required for body text at Level AA. We are reviewing these instances.</li>
+  <li><strong>Third-party scheduling page:</strong> our booking page is hosted by Calendly, and its accessibility is governed by Calendly's own conformance. If you encounter difficulty booking, contact us directly and we will schedule on your behalf.</li>
+</ul>
 
 <h2>Compatible Assistive Technologies</h2>
 <ul>
@@ -137,7 +142,7 @@ strong{color:var(--text)}
 </ul>
 
 <h2>Accessibility Assistance &amp; Alternative Formats</h2>
-<p>If you require this website's content in an alternative accessible format, or need assistance accessing any information on this site, please contact us. We will respond to accessibility requests within five business days.</p>
+<p>If you require this website's content in an alternative accessible format, need assistance accessing any information on this site, or would like help requesting a mediation date, please contact us. We will respond to accessibility requests within five business days.</p>
 
 <h2>Feedback</h2>
 <p>We welcome feedback on the accessibility of this site. Please let us know if you encounter barriers and we will make reasonable efforts to address them promptly.</p>
@@ -153,10 +158,10 @@ strong{color:var(--text)}
     <div class="policy-footer-copy">© 2026 William D. Clifford, Esq. · Attorney advertising. Prior results do not guarantee a similar outcome.</div>
   </div>
   <div class="policy-footer-links">
-    <a href="/privacy-policy">Privacy Policy</a>
-    <a href="/terms">Terms &amp; Conditions</a>
-    <a href="/cookie-policy">Cookie Policy</a>
-    <a href="/accessibility">Accessibility</a>
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms.html">Terms &amp; Conditions</a>
+    <a href="cookie-policy.html">Cookie Policy</a>
+    <a href="accessibility.html">Accessibility</a>
     <a href="/#contact">Contact</a>
   </div>
 </footer>
